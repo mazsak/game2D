@@ -1,0 +1,2 @@
+g - grass
+w - water
