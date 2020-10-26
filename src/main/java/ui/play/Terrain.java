@@ -3,8 +3,8 @@ package ui.play;
 import core.character.Character;
 import core.AnimationController;
 import core.character.CharacterImpl;
-import core.terrain.Builder;
 import core.terrain.TerrainBuilder;
+import core.terrain.TerrainBuilderImpl;
 import core.terrain.tiles.Tile;
 
 import javax.swing.*;
@@ -27,7 +27,7 @@ public class Terrain extends JPanel {
         bind();
 
         setFocusable(true);
-        TerrainBuilder builder = new TerrainBuilder();
+        TerrainBuilderImpl builder = new TerrainBuilderImpl();
         createTerrain(mapFile, builder);
         terrain = builder.getTerrainList();
 
@@ -78,7 +78,7 @@ public class Terrain extends JPanel {
         });
     }
 
-    private void createTerrain(String mapFile, Builder builder) {
+    private void createTerrain(String mapFile, TerrainBuilder terrainBuilder) {
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(mapFile));
@@ -86,7 +86,7 @@ public class Terrain extends JPanel {
             String type;
             int quantity;
             if ((line = br.readLine()) != null) {
-                builder.setSize(Integer.parseInt(line.split(" ")[0]), Integer.parseInt(line.split(" ")[1]));
+                terrainBuilder.setSize(Integer.parseInt(line.split(" ")[0]), Integer.parseInt(line.split(" ")[1]));
                 while ((line = br.readLine()) != null) {
                     String[] lineParts = line.split(";");
                     for (String part : lineParts) {
@@ -94,16 +94,16 @@ public class Terrain extends JPanel {
                         quantity = Integer.parseInt(part.split("\\.")[1]);
                         switch (type) {
                             case "g":
-                                builder.buildGrass(quantity);
+                                terrainBuilder.buildGrass(quantity);
                                 break;
                             case "w":
-                                builder.buildWater(quantity);
+                                terrainBuilder.buildWater(quantity);
                                 break;
                         }
                     }
                 }
             }
-            builder.build();
+            terrainBuilder.build();
         } catch (IOException e) {
             System.out.println("Error loading map!");
             e.printStackTrace();

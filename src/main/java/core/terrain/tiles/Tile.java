@@ -1,5 +1,6 @@
 package core.terrain.tiles;
 
+import constant.Size;
 import core.character.Character;
 
 import javax.swing.*;
@@ -7,8 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tile {
-    private final int SIZE = 40;
+public abstract class Tile {
 
     private List<Image> images;
     private int x, y;
@@ -18,13 +18,13 @@ public class Tile {
         this.x = x;
         this.y = y;
         images = new ArrayList<>();
-        images.add(new ImageIcon(file).getImage().getScaledInstance(SIZE, SIZE, java.awt.Image.SCALE_SMOOTH));
-        width = SIZE;
-        height = SIZE;
+        images.add(new ImageIcon(file).getImage().getScaledInstance(Size.SIZETILE, Size.SIZETILE, java.awt.Image.SCALE_SMOOTH));
+        width = Size.SIZETILE;
+        height = Size.SIZETILE;
     }
 
     public void addImage(String file){
-        Image temp = new ImageIcon(file).getImage().getScaledInstance(SIZE, SIZE, java.awt.Image.SCALE_SMOOTH);
+        Image temp = new ImageIcon(file).getImage().getScaledInstance(Size.SIZETILE, Size.SIZETILE, java.awt.Image.SCALE_SMOOTH);
         images.add(temp);
     }
 

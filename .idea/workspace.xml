@@ -6,7 +6,22 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44b90b42-dec0-4324-84cc-8680fb1731ae" name="Default Changelist" comment="" />
+    <list default="true" id="44b90b42-dec0-4324-84cc-8680fb1731ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/constant/Size.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/Builder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/play/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/play/Terrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/game.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uml/class_game.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/uml/class_game.drawio" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +34,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="as4s2b85" />
@@ -38,9 +56,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/texture" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../UCZELNIA/MiIAB/zad2" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -62,13 +81,13 @@
       <recent name="F:\Projects\MOJE\JAVA\game\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.Main" />
-      <module name="game" />
+      <module name="game2D" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ui.play.*" />
+          <option name="PATTERN" value="ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,21 +95,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Mario" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="core.Mario" />
-      <module name="game" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Mario" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Mario" />
       </list>
     </recent_temporary>
   </component>
@@ -116,6 +123,10 @@
       <workItem from="1602194382881" duration="389000" />
       <workItem from="1602237963955" duration="16082000" />
       <workItem from="1602257240827" duration="14530000" />
+      <workItem from="1602679327755" duration="3731000" />
+      <workItem from="1603639080111" duration="624000" />
+      <workItem from="1603647685485" duration="1344000" />
+      <workItem from="1603701554757" duration="7889000" />
     </task>
     <servers />
   </component>
@@ -123,10 +134,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602257718201">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603739324849">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602257718201" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603739324849" />
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1602323881568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -135,33 +146,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="301" key="#com.intellij.ide.util.TreeClassChooserDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602252779352" />
-    <state x="423" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602320618501">
+    <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603742985506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="423" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602320618501" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1602251621670">
+    <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603742985506" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1603724253841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602251621670" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1602325078547">
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603724253841" />
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1603746425753">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602325078547" />
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603746425753" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1602325078547">
+    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1603746425753">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602325078547" />
+    <state width="1877" height="278" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603746425753" />
     <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1602325078547">
+    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1603746425753">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602325078547" />
+    <state width="1877" height="278" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603746425753" />
     <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1602325078547">
+    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1603746425753">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602325078547" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603746425753" />
     <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1602257486288">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -187,18 +198,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="175" key="Maven.ArtifactSearchDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602254686242" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1602282608248">
+    <state x="440" y="94" key="SettingsEditor" timestamp="1602688815544">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602282608248" />
+    <state x="440" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602688815544" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602257356491">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602257356491" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1602257257382">
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1603702038623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602257257382" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603702038623" />
     <state x="2032" y="0" width="1389" height="824" maximized="true" key="dock-window-1" timestamp="1602194770524">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -219,11 +230,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java</url>
           <line>22</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
