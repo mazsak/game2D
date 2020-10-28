@@ -1,16 +1,13 @@
 package ui.play;
 
+import core.bind.BindKeyboardAdapter;
 import core.character.Character;
-import core.AnimationController;
-import core.character.CharacterImpl;
 import core.terrain.TerrainBuilder;
 import core.terrain.TerrainBuilderImpl;
 import core.terrain.tiles.Tile;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,64 +15,28 @@ import java.util.List;
 
 public class Terrain extends JPanel {
 
-    private List<Tile> terrain;
-    private Character character;
+    private List<Tile> tiles;
+    private final List<Character> characters;
 
-    public Terrain(String mapFile) {
+    public Terrain(String mapFile, List<Character> characters) {
         setSize(1000, 1000);
 
-        bind();
+        bind(characters.get(0));
 
         setFocusable(true);
         TerrainBuilderImpl builder = new TerrainBuilderImpl();
         createTerrain(mapFile, builder);
-        terrain = builder.getTerrainList();
-
-        character = new CharacterImpl(terrain);
-
-        new Thread(new AnimationController(character, terrain, this)).start();
-//        new Thread(new GamepadBind(character)).start();
+        tiles = builder.getTerrainList();
+        this.characters = characters;
 
     }
 
-    private void bind(){
-        addKeyListener(new KeyAdapter() {
-            public void keyReleased(KeyEvent ev) {
-                switch(ev.getKeyCode())	{
-                    case KeyEvent.VK_LEFT:
-                    case KeyEvent.VK_RIGHT:
-                        character.stopH();
-                    case KeyEvent.VK_UP:
-                    case KeyEvent.VK_DOWN:
-                        character.stopV();
-                        break;
-                    default:
-                        System.out.println(ev.getKeyCode());
-                }
-            }
+    public List<Tile> getTiles() {
+        return tiles;
+    }
 
-            @Override
-            public void keyTyped(KeyEvent e) {
-                super.keyTyped(e);
-                System.out.println(e.getKeyChar() + " - " + e.getKeyCode());
-            }
-
-            public void keyPressed(KeyEvent ev) {
-                switch(ev.getKeyCode())	{
-                    case KeyEvent.VK_LEFT:	character.left(); break;
-                    case KeyEvent.VK_RIGHT:	character.right(); break;
-                    case KeyEvent.VK_UP:	character.top(); break;
-                    case KeyEvent.VK_DOWN:	character.bottom(); break;
-                    case KeyEvent.VK_ESCAPE:
-                        System.exit(0);
-                        break;
-                    default:
-                        System.out.println(ev.getKeyCode());
-                        System.out.println(ev.getKeyChar());
-                }
-            }
-
-        });
+    private void bind(Character character) {
+        addKeyListener(new BindKeyboardAdapter(character));
     }
 
     private void createTerrain(String mapFile, TerrainBuilder terrainBuilder) {
@@ -110,10 +71,10 @@ public class Terrain extends JPanel {
         }
     }
 
+    @Override
     public void paint(Graphics g) {
         super.paint(g);
-        for (Tile s : terrain)
-            s.draw(g);
-        character.draw(g);
+        tiles.forEach(tile -> tile.draw(g));
+        characters.forEach(character -> character.paint(g));
     }
 }

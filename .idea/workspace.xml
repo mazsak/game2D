@@ -7,20 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44b90b42-dec0-4324-84cc-8680fb1731ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/constant/Size.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/BindGamepad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/bind/BindKeyboardAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/Builder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constant/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constant/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/AnimationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/AnimationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/GamepadBind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/character/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/character/CharacterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/character/CharacterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/TileWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/TileWater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/play/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/play/Terrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/game.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/class_game.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/uml/class_game.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +126,8 @@
       <workItem from="1603639080111" duration="624000" />
       <workItem from="1603647685485" duration="1344000" />
       <workItem from="1603701554757" duration="7889000" />
+      <workItem from="1603830393975" duration="2521000" />
+      <workItem from="1603871782539" duration="9373000" />
     </task>
     <servers />
   </component>
@@ -138,10 +139,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603739324849" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1602323881568">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1603881234051">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602323881568" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603881234051" />
     <state x="690" y="301" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1602252779352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -154,25 +155,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603724253841" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1603746425753">
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1603886659729">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603746425753" />
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886659729" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1603746425753">
+    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1603886659729">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603746425753" />
+    <state width="1877" height="278" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886659729" />
     <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1603746425753">
+    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1603886659729">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603746425753" />
+    <state width="1877" height="278" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886659729" />
     <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1603746425753">
+    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1603886659729">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603746425753" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886659729" />
     <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1602257486288">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -202,18 +203,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602688815544" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602257356491">
+    <state x="1514" y="201" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603879477834">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1514" y="201" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603879477834" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1603871956919">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602257356491" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1603702038623">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603702038623" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603871956919" />
     <state x="2032" y="0" width="1389" height="824" maximized="true" key="dock-window-1" timestamp="1602194770524">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2032" y="0" width="1389" height="824" maximized="true" key="dock-window-1/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602194770524" />
+    <state x="702" y="139" key="refactoring.ChangeSignatureDialog" timestamp="1603881207568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="139" key="refactoring.ChangeSignatureDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603881207568" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1602244794818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -230,6 +235,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java</url>
           <line>22</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/core/BindGamepad.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

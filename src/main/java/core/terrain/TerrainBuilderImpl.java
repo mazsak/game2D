@@ -1,6 +1,6 @@
 package core.terrain;
 
-import constant.Size;
+import constant.Const;
 import core.terrain.tiles.Tile;
 import core.terrain.tiles.TileGrass;
 import core.terrain.tiles.TileWater;
@@ -92,7 +92,7 @@ public class TerrainBuilderImpl implements TerrainBuilder {
     @Override
     public void buildGrass(int number) {
         for (int i = 0; i < number; i++) {
-            Tile grass = new TileGrass(x * Size.SIZETILE, y * Size.SIZETILE, "texture\\grass\\" + grassTextures.get(new Random().nextInt(grassTextures.size())));
+            Tile grass = new TileGrass(x * Const.SIZETILE, y * Const.SIZETILE, "texture\\grass\\" + grassTextures.get(new Random().nextInt(grassTextures.size())));
             terrain[x++][y] = grass;
             if (x == width) {
                 x = 0;
@@ -104,7 +104,7 @@ public class TerrainBuilderImpl implements TerrainBuilder {
     @Override
     public void buildWater(int number) {
         for (int i = 0; i < number; i++) {
-            Tile water = new TileWater(x * Size.SIZETILE, y * Size.SIZETILE, "texture\\water\\" + waterTextures.get(new Random().nextInt(waterTextures.size())));
+            Tile water = new TileWater(x * Const.SIZETILE, y * Const.SIZETILE, "texture\\water\\" + waterTextures.get(new Random().nextInt(waterTextures.size())));
             terrain[x++][y] = water;
             if (x == width) {
                 x = 0;

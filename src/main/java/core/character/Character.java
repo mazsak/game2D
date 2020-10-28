@@ -1,21 +1,23 @@
 package core.character;
 
+import core.terrain.tiles.Tile;
+
 import java.awt.*;
+import java.util.List;
 
 
 public interface Character {
 
-    void top();
-    void right();
-    void bottom();
-    void left();
+    int getIndexGamepad();
 
-    void stopV();
-    void stopH();
+    void movingVertical(int speed);
+    void movingHorizontally(int speed);
+
+    void isStop();
     void stopMove();
 
-    boolean canGo(int dx, int dy);
-    void collide(int dx, int dy);
-    void tick();
-    void draw(Graphics g);
+    boolean canGo(int dx, int dy, List<Tile> tiles);
+    void collide(int dx, int dy,List<Tile> tiles);
+    void tick(List<Tile> tiles);
+    void paint(Graphics g);
 }

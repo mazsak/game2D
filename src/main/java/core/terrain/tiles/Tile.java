@@ -1,6 +1,6 @@
 package core.terrain.tiles;
 
-import constant.Size;
+import constant.Const;
 import core.character.Character;
 
 import javax.swing.*;
@@ -18,13 +18,13 @@ public abstract class Tile {
         this.x = x;
         this.y = y;
         images = new ArrayList<>();
-        images.add(new ImageIcon(file).getImage().getScaledInstance(Size.SIZETILE, Size.SIZETILE, java.awt.Image.SCALE_SMOOTH));
-        width = Size.SIZETILE;
-        height = Size.SIZETILE;
+        images.add(new ImageIcon(file).getImage().getScaledInstance(Const.SIZETILE, Const.SIZETILE, java.awt.Image.SCALE_SMOOTH));
+        width = Const.SIZETILE;
+        height = Const.SIZETILE;
     }
 
     public void addImage(String file){
-        Image temp = new ImageIcon(file).getImage().getScaledInstance(Size.SIZETILE, Size.SIZETILE, java.awt.Image.SCALE_SMOOTH);
+        Image temp = new ImageIcon(file).getImage().getScaledInstance(Const.SIZETILE, Const.SIZETILE, java.awt.Image.SCALE_SMOOTH);
         images.add(temp);
     }
 

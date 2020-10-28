@@ -10,11 +10,11 @@ public class TileWater extends Tile {
 
     @Override
     public void collisionV(Character character) {
-        character.stopV();
+        character.movingVertical(0);
     }
 
     @Override
     public void collisionH(Character character) {
-        character.stopH();
+        character.movingHorizontally(0);
     }
 }

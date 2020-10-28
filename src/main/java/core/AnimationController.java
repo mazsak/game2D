@@ -1,32 +1,25 @@
 package core;
 
 
-import core.character.Character;
+import ui.Game;
 import core.terrain.tiles.Tile;
-
-import javax.swing.*;
-import java.util.List;
 
 public class AnimationController implements Runnable {
 
-    private final Character character;
-    private final List<Tile> terrain;
-    private final JPanel screenGame;
+    private final Game game;
 
-    public AnimationController(Character character, List<Tile> terrain, JPanel screenGame) {
-        this.character = character;
-        this.terrain = terrain;
-        this.screenGame = screenGame;
+    public AnimationController(Game game) {
+        this.game = game;
     }
 
     @Override
     public void run() {
-        new Thread(new GamepadBind(character)).start();
+        new Thread(new BindGamepad(game)).start();
         while (true) {
-            character.tick();
-            for (Tile tile : terrain)
+            game.getCharacters().forEach(character -> character.tick(game.getTerrain().getTiles()));
+            for (Tile tile : game.getTerrain().getTiles())
                 tile.tick();
-            screenGame.repaint();
+            game.repaint();
             Thread.yield();
             try {
                 Thread.sleep(40);

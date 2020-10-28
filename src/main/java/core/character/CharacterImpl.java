@@ -10,57 +10,51 @@ import java.util.List;
 public class CharacterImpl implements Character {
 
     private static final Image img = new ImageIcon("texture\\character\\character.png").getImage();
-    private final List<Tile> tiles;
     private final int width = 16, height = 27;
+    private final int indexGamepad;
     private int[] anim = {0, 1, 2, 1};
     private int frame = 2;
     private boolean mirror = false;
     private int movingH = 0;
     private int movingV = 0;
     private int x = 150, y = 0;
-    private int speed = 3;
 
-    public CharacterImpl(List<Tile> tiles) {
-        this.tiles = tiles;
+    public CharacterImpl(int indexGamepad) {
+        this.indexGamepad = indexGamepad;
+    }
+
+    public int getIndexGamepad() {
+        return indexGamepad;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     @Override
-    public void top() {
-        movingV = 3;
+    public void movingVertical(int speed) {
+        movingV = speed;
+        isStop();
     }
 
     @Override
-    public void right() {
+    public void movingHorizontally(int speed) {
         movingH = speed;
-        mirror = true;
+        mirror = speed >= 0;
+        isStop();
     }
 
     @Override
-    public void bottom() {
-        movingV = -speed;
-    }
-
-    @Override
-    public void left() {
-        movingH = -speed;
-        mirror = false;
-    }
-
-    @Override
-    public void stopV() {
-        movingV = 0;
-        if (movingH == 0) {
+    public void isStop() {
+        if (movingH == 0 && movingV == 0) {
             frame = 2;
         }
     }
 
-    @Override
-    public void stopH() {
-        movingH = 0;
-        if (movingV == 0) {
-            frame = 2;
-        }
-    }
 
     @Override
     public void stopMove() {
@@ -70,7 +64,7 @@ public class CharacterImpl implements Character {
     }
 
     @Override
-    public boolean canGo(int dx, int dy) {
+    public boolean canGo(int dx, int dy, List<Tile> tiles) {
         for (Tile p : tiles)
             if (p.getBounds().intersects(x + dx, y + dy, width, height)) {
                 return false;
@@ -79,7 +73,7 @@ public class CharacterImpl implements Character {
     }
 
     @Override
-    public void collide(int dx, int dy) {
+    public void collide(int dx, int dy, List<Tile> tiles) {
         for (Tile p : tiles) {
             if (p.getBounds().intersects(x + dx, y + dy, width, height)) {
                 if (dx != 0)
@@ -91,7 +85,7 @@ public class CharacterImpl implements Character {
     }
 
     @Override
-    public void tick() {
+    public void tick(List<Tile> tiles) {
         if (movingH != 0 || movingV != 0) {// animacja ruchu
             frame++;
             while (frame >= anim.length)
@@ -99,19 +93,19 @@ public class CharacterImpl implements Character {
         }
         // przesuniecie w poziomie
         for (int i = 0; i < Math.abs(movingH); ++i) {
-            collide((int) Math.signum(movingH), 0);
+            collide((int) Math.signum(movingH), 0, tiles);
             x += (int) Math.signum(movingH);
         }
 
         // przesuniecie w pionie
         for (int i = 0; i < Math.abs(movingV); ++i) {
-            collide(0, -(int) Math.signum(movingV));
+            collide(0, -(int) Math.signum(movingV), tiles);
             y -= (int) Math.signum(movingV);
         }
     }
 
     @Override
-    public void draw(Graphics g) {
+    public void paint(Graphics g) {
         g.drawImage(img, x + (mirror ? width : 0), y, x + (mirror ? 0 : width), y + height,
                 anim[frame] * width, 0, anim[frame] * width + width, height, null);
     }
