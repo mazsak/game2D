@@ -20,23 +20,22 @@ public class Terrain extends JPanel {
 
     public Terrain(String mapFile, List<Character> characters) {
         setSize(1000, 1000);
-
-        bind(characters.get(0));
-
         setFocusable(true);
+
+        this.characters = characters;
         TerrainBuilderImpl builder = new TerrainBuilderImpl();
         createTerrain(mapFile, builder);
         tiles = builder.getTerrainList();
-        this.characters = characters;
 
+        bind();
     }
 
     public List<Tile> getTiles() {
         return tiles;
     }
 
-    private void bind(Character character) {
-        addKeyListener(new BindKeyboardAdapter(character));
+    private void bind() {
+        addKeyListener(new BindKeyboardAdapter(characters.get(0), this));
     }
 
     private void createTerrain(String mapFile, TerrainBuilder terrainBuilder) {

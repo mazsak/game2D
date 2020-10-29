@@ -2,6 +2,8 @@ package core.bind;
 
 import constant.Const;
 import core.character.Character;
+import ui.play.GameMenu;
+import ui.play.Terrain;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -9,9 +11,11 @@ import java.awt.event.KeyEvent;
 public class BindKeyboardAdapter extends KeyAdapter {
 
     private final Character character;
+    private final Terrain screenTerrain;
 
-    public BindKeyboardAdapter(Character character) {
+    public BindKeyboardAdapter(Character character, Terrain terrain) {
         this.character = character;
+        this.screenTerrain = terrain;
     }
 
     @Override
@@ -53,7 +57,7 @@ public class BindKeyboardAdapter extends KeyAdapter {
                 character.movingVertical(-Const.SPEEDHERO);
                 break;
             case KeyEvent.VK_ESCAPE:
-                System.exit(0);
+                screenTerrain.add(new GameMenu());
                 break;
             default:
                 System.out.println(e.getKeyCode());

@@ -7,18 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44b90b42-dec0-4324-84cc-8680fb1731ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/BindGamepad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/bind/BindKeyboardAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/play/GameMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/constant/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constant/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/AnimationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/AnimationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/GamepadBind.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/character/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/character/CharacterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/character/CharacterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/TileWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/TileWater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/bind/BindKeyboardAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/bind/BindKeyboardAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/play/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/play/Terrain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,12 +118,25 @@
       <workItem from="1603647685485" duration="1344000" />
       <workItem from="1603701554757" duration="7889000" />
       <workItem from="1603830393975" duration="2521000" />
-      <workItem from="1603871782539" duration="9373000" />
+      <workItem from="1603871782539" duration="12045000" />
+      <workItem from="1603991157595" duration="637000" />
     </task>
+    <task id="LOCAL-00001" summary="Clear code and add mod multi">
+      <created>1603886831632</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603886831632</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Clear code and add mod multi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clear code and add mod multi" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603739324849">
@@ -151,29 +155,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603742985506" />
+    <state x="585" y="110" key="CommitChangelistDialog2" timestamp="1603886830057">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="110" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886830057" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1603724253841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603724253841" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1603886659729">
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1603920325585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886659729" />
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603920325585" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1603886659729">
+    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1603920325585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886659729" />
+    <state width="1877" height="278" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603920325585" />
     <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1603886659729">
+    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1603920325585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886659729" />
+    <state width="1877" height="278" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603920325585" />
     <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1603886659729">
+    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1603920325585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886659729" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603920325585" />
     <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1601930284073" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1602257486288">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -203,14 +211,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602688815544" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603886836040">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886836040" />
     <state x="1514" y="201" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603879477834">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1514" y="201" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603879477834" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1603871956919">
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1603991156009">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603871956919" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603991156009" />
     <state x="2032" y="0" width="1389" height="824" maximized="true" key="dock-window-1" timestamp="1602194770524">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
