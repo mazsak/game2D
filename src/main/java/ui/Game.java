@@ -36,7 +36,6 @@ public class Game extends JFrame {
         client = null;
         server = new Server(this);
         server.start();
-        System.out.println(terrain.packTerrain());
         new Thread(new AnimationController(this)).start();
         //        new Thread(new GamepadBind(character)).start();
 
@@ -64,7 +63,6 @@ public class Game extends JFrame {
         }
         terrain = new Terrain("mapWithServer.txt", characters, charactersThroughNet);
         add(terrain);
-        System.out.println(terrain.packTerrain());
         new Thread(new AnimationController(this)).start();
         //        new Thread(new GamepadBind(character)).start();
 

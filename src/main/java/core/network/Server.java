@@ -12,7 +12,7 @@ public class Server extends Thread {
     private final Game game;
     private DatagramSocket socket;
     private boolean running;
-    private byte[] buf = new byte[256];
+    private byte[] buf = new byte[1024];
 
     @SneakyThrows
     public Server(Game game) {
@@ -36,7 +36,8 @@ public class Server extends Thread {
 
             if (received.equals("get map")) {
                 buf = game.getTerrain().packTerrain().getBytes();
-                game.addPlayerNet(address);
+                System.out.println(new String(buf));
+//                game.addPlayerNet(address);
             }else if (received.equals("delete player")){
                 game.removePlayerNet(address);
                 buf = "closed connection".getBytes();

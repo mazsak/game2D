@@ -12,7 +12,7 @@ public class Client {
     private InetAddress address;
     private final Game game;
 
-    private byte[] buf;
+    private byte[] buf = new byte[1024];
 
     @SneakyThrows
     public Client(String address, Game game) {
