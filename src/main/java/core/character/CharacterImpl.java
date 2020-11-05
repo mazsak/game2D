@@ -27,7 +27,7 @@ public class CharacterImpl implements Character {
     }
 
     public CharacterImpl(InetAddress address) {
-        this.indexGamepad = Integer.parseInt(null);
+        this.indexGamepad=-1;
         this.address = address;
     }
 

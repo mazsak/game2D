@@ -31,6 +31,7 @@ public class Client {
         socket.receive(packet);
         String received = new String(
                 packet.getData(), 0, packet.getLength());
+        game.addPlayerNet(address);
         return received;
     }
 
@@ -40,6 +41,7 @@ public class Client {
         DatagramPacket packet
                 = new DatagramPacket(buf, buf.length, address, 4445);
         socket.send(packet);
+        buf = new byte[1024];
         packet = new DatagramPacket(buf, buf.length);
         socket.receive(packet);
         String received = new String(

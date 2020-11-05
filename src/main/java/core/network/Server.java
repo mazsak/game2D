@@ -36,13 +36,13 @@ public class Server extends Thread {
 
             if (received.equals("get map")) {
                 buf = game.getTerrain().packTerrain().getBytes();
-                System.out.println(new String(buf));
-//                game.addPlayerNet(address);
+                game.addPlayerNet(address);
             }else if (received.equals("delete player")){
                 game.removePlayerNet(address);
                 buf = "closed connection".getBytes();
             }else{
                 game.updateData(received, address);
+                buf = new byte[1024];
                 buf = game.getData();
             }
             packet = new DatagramPacket(buf, buf.length, address, port);
