@@ -4,6 +4,7 @@ import core.terrain.tiles.Tile;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.InetAddress;
 import java.util.List;
 
 
@@ -12,6 +13,7 @@ public class CharacterImpl implements Character {
     private static final Image img = new ImageIcon("texture\\character\\character.png").getImage();
     private final int width = 16, height = 27;
     private final int indexGamepad;
+    private final InetAddress address;
     private int[] anim = {0, 1, 2, 1};
     private int frame = 2;
     private boolean mirror = false;
@@ -21,16 +23,38 @@ public class CharacterImpl implements Character {
 
     public CharacterImpl(int indexGamepad) {
         this.indexGamepad = indexGamepad;
+        this.address = null;
+    }
+
+    public CharacterImpl(InetAddress address) {
+        this.indexGamepad = Integer.parseInt(null);
+        this.address = address;
     }
 
     public int getIndexGamepad() {
         return indexGamepad;
     }
 
+    public InetAddress getAddress() {
+        return address;
+    }
+
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
     public void setX(int x) {
         this.x = x;
     }
 
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
     public void setY(int y) {
         this.y = y;
     }

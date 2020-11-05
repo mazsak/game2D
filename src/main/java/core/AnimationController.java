@@ -2,7 +2,6 @@ package core;
 
 
 import ui.Game;
-import core.terrain.tiles.Tile;
 
 public class AnimationController implements Runnable {
 
@@ -17,9 +16,14 @@ public class AnimationController implements Runnable {
         new Thread(new BindGamepad(game)).start();
         while (true) {
             game.getCharacters().forEach(character -> character.tick(game.getTerrain().getTiles()));
-            for (Tile tile : game.getTerrain().getTiles())
-                tile.tick();
+            game.getCharactersThroughNet().forEach(character -> character.tick(game.getTerrain().getTiles()));
+//            for (Tile tile : game.getTerrain().getTiles())
+//                tile.tick();
             game.repaint();
+            if (game.getClient() != null) {
+                game.getClient().updateData();
+            }
+//            game.getTerrain().repaint();
             Thread.yield();
             try {
                 Thread.sleep(40);

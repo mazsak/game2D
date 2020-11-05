@@ -101,6 +101,10 @@ public class TerrainBuilderImpl implements TerrainBuilder {
         }
     }
 
+    private String packGrass(int number) {
+        return "g." + number + ";";
+    }
+
     @Override
     public void buildWater(int number) {
         for (int i = 0; i < number; i++) {
@@ -113,9 +117,44 @@ public class TerrainBuilderImpl implements TerrainBuilder {
         }
     }
 
+    private String packWater(int number) {
+        return "w." + number + ";";
+    }
+
     @Override
     public void build() {
         buildGrassEdges();
+    }
+
+    @Override
+    public String pack() {
+        String classTitleName = terrain[0][0].getClass().getName();
+        int amountTile = 1;
+        StringBuilder map = new StringBuilder();
+        map.append(width).append(" ").append(height).append("\n");
+        for (int y = 1; y < height; y++) {
+            for (int x = 1; x < width; x++) {
+                if (!classTitleName.equals(terrain[x][y].getClass().getName())) {
+                    if (classTitleName.equals(TileGrass.class.getName())) {
+                        map.append(packGrass(amountTile));
+                    } else if (classTitleName.equals(TileWater.class.getName())) {
+                        map.append(packWater(amountTile));
+                    }
+                    classTitleName = terrain[x][y].getClass().getName();
+                    amountTile = 1;
+                } else {
+                    amountTile++;
+                }
+            }
+            if (classTitleName.equals(TileGrass.class.getName())) {
+                map.append(packGrass(amountTile));
+            } else if (classTitleName.equals(TileWater.class.getName())) {
+                map.append(packWater(amountTile));
+            }
+            amountTile = 1;
+            map.append("\n");
+        }
+        return map.toString();
     }
 
 

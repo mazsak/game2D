@@ -7,4 +7,5 @@ public interface TerrainBuilder {
     void buildGrass(int number);
     void buildWater(int number);
     void build();
+    String pack();
 }

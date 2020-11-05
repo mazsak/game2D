@@ -31,7 +31,7 @@ public class BindGamepad implements Runnable {
             for (Character character : characters) {
                 ControllerState controller = controllerManager.getState(character.getIndexGamepad());
                 if (!controller.isConnected) {
-                    System.out.println("Disconnected");
+//                    System.out.println("Disconnected");
                 }
                 if (controller.leftStickY > Const.THRESHOLD) {
                     character.movingVertical((int) (Const.SPEEDHERO * controller.leftStickY));

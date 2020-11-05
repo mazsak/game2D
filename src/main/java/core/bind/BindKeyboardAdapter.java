@@ -58,6 +58,9 @@ public class BindKeyboardAdapter extends KeyAdapter {
                 break;
             case KeyEvent.VK_ESCAPE:
                 screenTerrain.add(new GameMenu());
+                screenTerrain.repaint();
+                screenTerrain.revalidate();
+//                screenTerrain.getParent().remove(screenTerrain);
                 break;
             default:
                 System.out.println(e.getKeyCode());
