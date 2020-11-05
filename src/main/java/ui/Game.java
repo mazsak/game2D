@@ -8,7 +8,6 @@ import core.network.Server;
 import ui.play.Terrain;
 
 import javax.swing.*;
-import javax.xml.ws.Service;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -100,14 +99,16 @@ public class Game extends JFrame {
         charactersThroughNet.removeIf(character -> character.getAddress().equals(address));
     }
 
-    public void updateData(String dataString) {
+    public void updateData(String dataString, InetAddress address) {
         String[] data = dataString.split(",");
         int index = 0;
         for (Character character : charactersThroughNet) {
-            character.setX(Integer.parseInt(data[index]));
-            index++;
-            character.setY(Integer.parseInt(data[index]));
-            index++;
+            if (address.equals(character.getAddress())) {
+                character.setX(Integer.parseInt(data[index]));
+                index++;
+                character.setY(Integer.parseInt(data[index]));
+                index++;
+            }
         }
     }
 

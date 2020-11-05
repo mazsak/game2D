@@ -41,7 +41,7 @@ public class Server extends Thread {
                 game.removePlayerNet(address);
                 buf = "closed connection".getBytes();
             }else{
-                game.updateData(received);
+                game.updateData(received, address);
                 buf = game.getData();
             }
             packet = new DatagramPacket(buf, buf.length, address, port);

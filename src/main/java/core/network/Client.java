@@ -36,7 +36,6 @@ public class Client {
 
     @SneakyThrows
     public void updateData() {
-
         buf = game.getData();
         DatagramPacket packet
                 = new DatagramPacket(buf, buf.length, address, 4445);
@@ -45,7 +44,7 @@ public class Client {
         socket.receive(packet);
         String received = new String(
                 packet.getData(), 0, packet.getLength());
-        game.updateData(received);
+        game.updateData(received, address);
     }
 
     public void close() {

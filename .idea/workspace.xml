@@ -7,21 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44b90b42-dec0-4324-84cc-8680fb1731ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/network/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/network/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/AnimationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/AnimationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/BindGamepad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/BindGamepad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/bind/BindKeyboardAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/bind/BindKeyboardAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/character/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/character/CharacterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/character/CharacterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/TerrainBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/terrain/tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/network/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/network/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/play/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/play/GameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/play/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/play/Terrain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +70,7 @@
       <recent name="F:\Projects\MOJE\JAVA\game\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientMain">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.ClientMain" />
       <module name="game2D" />
@@ -111,8 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ClientMain" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +135,7 @@
       <workItem from="1603991157595" duration="1222000" />
       <workItem from="1603999747456" duration="2119000" />
       <workItem from="1604436812004" duration="1871000" />
-      <workItem from="1604584425393" duration="16893000" />
+      <workItem from="1604584425393" duration="17438000" />
     </task>
     <task id="LOCAL-00001" summary="Clear code and add mod multi">
       <created>1603886831632</created>
@@ -156,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603886831632</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first step to multi gameplay">
+      <created>1604610154602</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604610154602</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +159,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Clear code and add mod multi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clear code and add mod multi" />
+    <MESSAGE value="first step to multi gameplay" />
+    <option name="LAST_COMMIT_MESSAGE" value="first step to multi gameplay" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603739324849">
@@ -183,34 +179,35 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="165" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603742985506" />
-    <state x="585" y="110" key="CommitChangelistDialog2" timestamp="1603886830057">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2505" y="110" key="CommitChangelistDialog2" timestamp="1604610152704">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="585" y="110" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886830057" />
+    <state x="2505" y="110" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610152704" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1603724253841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603724253841" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1604610099769">
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1604610512349">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604609934667" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610099769" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1604610099769">
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610512349" />
+    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1604610512349">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604609934667" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610099769" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1604610099769">
+    <state width="1877" height="278" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610512349" />
+    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1604610512348">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604609934667" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610099769" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1604610099769">
+    <state width="1877" height="278" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610512348" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1604610512349">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604609934667" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610099769" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610512349" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1604609934668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -239,10 +236,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602688815544" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603886836040">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604610515694">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603886836040" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1604610515694" />
     <state x="1514" y="201" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603879477834">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
