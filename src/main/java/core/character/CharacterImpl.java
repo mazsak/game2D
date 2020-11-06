@@ -1,10 +1,12 @@
 package core.character;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import core.terrain.tiles.Tile;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Modifier;
 import java.net.InetAddress;
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -207,7 +209,10 @@ public class CharacterImpl implements Character {
 
     @Override
     public String toJson() {
-        return new Gson().toJson(this);
+        return new GsonBuilder()
+                .excludeFieldsWithModifiers(Modifier.STATIC)
+                .create()
+                .toJson(this);
     }
 
     @Override
