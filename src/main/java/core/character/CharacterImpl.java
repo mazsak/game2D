@@ -24,11 +24,9 @@ public class CharacterImpl implements Character {
     private final int indexGamepad;
 //    @Expose
     private final InetAddress address;
-    @Expose
     private long updateHp = System.currentTimeMillis();
     @Expose
     private boolean showHp = false;
-    @Expose
     private long showHpTime = System.currentTimeMillis();
     @Expose
     private float hp = 0.5f;
