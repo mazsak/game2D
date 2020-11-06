@@ -14,15 +14,10 @@ import com.google.gson.annotations.Expose;
 
 public class CharacterImpl implements Character {
 
-//    @Expose
     private static final Image img = new ImageIcon("texture\\character\\character.png").getImage();
-//    @Expose
     private final int width = 16, height = 27;
-//    @Expose
     private final Rectangle hitBox;
-//    @Expose
     private final int indexGamepad;
-//    @Expose
     private final InetAddress address;
     private long updateHp = System.currentTimeMillis();
     @Expose
@@ -30,15 +25,12 @@ public class CharacterImpl implements Character {
     private long showHpTime = System.currentTimeMillis();
     @Expose
     private float hp = 0.5f;
-//    @Expose
     private int[] anim = {0, 1, 2, 1};
     @Expose
     private int frame = 2;
     @Expose
     private boolean mirror = false;
-    @Expose
     private int movingH = 0;
-    @Expose
     private int movingV = 0;
     @Expose
     private int x = 150, y = 0;
@@ -230,11 +222,7 @@ public class CharacterImpl implements Character {
         y = character.getY();
         hp = character.getHp();
         frame = character.getFrame();
-        updateHp = character.getUpdateHp();
-        showHpTime = character.getShowHpTime();
         showHp = character.isShowHp();
         mirror = character.isMirror();
-        movingV = character.getMovingV();
-        movingH = character.getMovingH();
     }
 }
