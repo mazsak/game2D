@@ -14,26 +14,35 @@ import com.google.gson.annotations.Expose;
 
 public class CharacterImpl implements Character {
 
-    @Expose(serialize = false)
+//    @Expose
     private static final Image img = new ImageIcon("texture\\character\\character.png").getImage();
-    @Expose(serialize = false)
+//    @Expose
     private final int width = 16, height = 27;
-    @Expose(serialize = false)
+//    @Expose
     private final Rectangle hitBox;
-    @Expose(serialize = false)
+//    @Expose
     private final int indexGamepad;
-    @Expose(serialize = false)
+//    @Expose
     private final InetAddress address;
+    @Expose
     private long updateHp = System.currentTimeMillis();
+    @Expose
     private boolean showHp = false;
+    @Expose
     private long showHpTime = System.currentTimeMillis();
+    @Expose
     private float hp = 0.5f;
-    @Expose(serialize = false)
+//    @Expose
     private int[] anim = {0, 1, 2, 1};
+    @Expose
     private int frame = 2;
+    @Expose
     private boolean mirror = false;
+    @Expose
     private int movingH = 0;
+    @Expose
     private int movingV = 0;
+    @Expose
     private int x = 150, y = 0;
 
     public CharacterImpl(int indexGamepad) {
@@ -210,7 +219,7 @@ public class CharacterImpl implements Character {
     @Override
     public String toJson() {
         return new GsonBuilder()
-                .excludeFieldsWithModifiers(Modifier.STATIC)
+                .excludeFieldsWithoutExposeAnnotation()
                 .create()
                 .toJson(this);
     }
