@@ -12,21 +12,21 @@ import com.google.gson.annotations.Expose;
 
 public class CharacterImpl implements Character {
 
-    @Expose
+    @Expose(serialize = false)
     private static final Image img = new ImageIcon("texture\\character\\character.png").getImage();
-    @Expose
+    @Expose(serialize = false)
     private final int width = 16, height = 27;
-    @Expose
+    @Expose(serialize = false)
     private final Rectangle hitBox;
-    @Expose
+    @Expose(serialize = false)
     private final int indexGamepad;
-    @Expose
+    @Expose(serialize = false)
     private final InetAddress address;
     private long updateHp = System.currentTimeMillis();
     private boolean showHp = false;
     private long showHpTime = System.currentTimeMillis();
     private float hp = 0.5f;
-    @Expose
+    @Expose(serialize = false)
     private int[] anim = {0, 1, 2, 1};
     private int frame = 2;
     private boolean mirror = false;

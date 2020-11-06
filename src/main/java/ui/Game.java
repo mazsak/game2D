@@ -98,6 +98,7 @@ public class Game extends JFrame {
     }
 
     public void updateData(String dataString, InetAddress address) {
+        System.out.println(dataString);
         for (Character character : charactersThroughNet) {
             if (address.equals(character.getAddress())) {
                 character.updateData(dataString);
