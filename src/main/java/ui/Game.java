@@ -98,14 +98,9 @@ public class Game extends JFrame {
     }
 
     public void updateData(String dataString, InetAddress address) {
-        String[] data = dataString.split(",");
-        int index = 0;
         for (Character character : charactersThroughNet) {
             if (address.equals(character.getAddress())) {
-                character.setX(Integer.parseInt(data[index]));
-                index++;
-                character.setY(Integer.parseInt(data[index]));
-                index++;
+                character.updateData(dataString);
             }
         }
     }
@@ -113,7 +108,7 @@ public class Game extends JFrame {
     public byte[] getData() {
         StringBuilder data = new StringBuilder();
         for (Character character : characters) {
-            data.append(character.getX()).append(",").append(character.getY()).append(",");
+            data.append(character.toJson());
         }
         return data.toString().getBytes();
     }

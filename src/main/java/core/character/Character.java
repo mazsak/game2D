@@ -11,8 +11,16 @@ public interface Character {
 
     int getX();
     int getY();
+    float getHp();
     int getIndexGamepad();
     InetAddress getAddress();
+    long getUpdateHp();
+    boolean isShowHp();
+    long getShowHpTime();
+    int getFrame();
+    boolean isMirror();
+    int getMovingH();
+    int getMovingV();
 
     void setX(int x);
     void setY(int y);
@@ -23,8 +31,13 @@ public interface Character {
     void isStop();
     void stopMove();
 
+    boolean cross(Point point);
+
     boolean canGo(int dx, int dy, List<Tile> tiles);
     void collide(int dx, int dy,List<Tile> tiles);
     void tick(List<Tile> tiles);
     void paint(Graphics g);
+
+    String toJson();
+    void updateData(String jsonString);
 }

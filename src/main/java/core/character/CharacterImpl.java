@@ -1,19 +1,32 @@
 package core.character;
 
+import com.google.gson.Gson;
 import core.terrain.tiles.Tile;
 
 import javax.swing.*;
 import java.awt.*;
 import java.net.InetAddress;
 import java.util.List;
+import com.google.gson.annotations.Expose;
 
 
 public class CharacterImpl implements Character {
 
+    @Expose
     private static final Image img = new ImageIcon("texture\\character\\character.png").getImage();
+    @Expose
     private final int width = 16, height = 27;
+    @Expose
+    private final Rectangle hitBox;
+    @Expose
     private final int indexGamepad;
+    @Expose
     private final InetAddress address;
+    private long updateHp = System.currentTimeMillis();
+    private boolean showHp = false;
+    private long showHpTime = System.currentTimeMillis();
+    private float hp = 0.5f;
+    @Expose
     private int[] anim = {0, 1, 2, 1};
     private int frame = 2;
     private boolean mirror = false;
@@ -24,11 +37,13 @@ public class CharacterImpl implements Character {
     public CharacterImpl(int indexGamepad) {
         this.indexGamepad = indexGamepad;
         this.address = null;
+        this.hitBox = new Rectangle(x, y, width, height);
     }
 
     public CharacterImpl(InetAddress address) {
-        this.indexGamepad=-1;
+        this.indexGamepad = -1;
         this.address = address;
+        this.hitBox = new Rectangle(x, y, width, height);
     }
 
     public int getIndexGamepad() {
@@ -55,8 +70,41 @@ public class CharacterImpl implements Character {
     }
 
     @Override
+    public float getHp() {
+        return hp;
+    }
+
+    @Override
     public void setY(int y) {
         this.y = y;
+    }
+
+    public long getUpdateHp() {
+        return updateHp;
+    }
+
+    public boolean isShowHp() {
+        return showHp;
+    }
+
+    public long getShowHpTime() {
+        return showHpTime;
+    }
+
+    public int getFrame() {
+        return frame;
+    }
+
+    public boolean isMirror() {
+        return mirror;
+    }
+
+    public int getMovingH() {
+        return movingH;
+    }
+
+    public int getMovingV() {
+        return movingV;
     }
 
     @Override
@@ -88,6 +136,11 @@ public class CharacterImpl implements Character {
     }
 
     @Override
+    public boolean cross(Point point) {
+        return hitBox.contains(point);
+    }
+
+    @Override
     public boolean canGo(int dx, int dy, List<Tile> tiles) {
         for (Tile p : tiles)
             if (p.getBounds().intersects(x + dx, y + dy, width, height)) {
@@ -110,6 +163,17 @@ public class CharacterImpl implements Character {
 
     @Override
     public void tick(List<Tile> tiles) {
+        if (hp < 1) {
+            if (System.currentTimeMillis() - updateHp >= 1000) {
+                hp += 0.01;
+                updateHp = System.currentTimeMillis();
+                showHpTime = System.currentTimeMillis();
+                showHp = true;
+            }
+            if (hp > 1) {
+                hp = 1;
+            }
+        }
         if (movingH != 0 || movingV != 0) {// animacja ruchu
             frame++;
             while (frame >= anim.length)
@@ -130,7 +194,35 @@ public class CharacterImpl implements Character {
 
     @Override
     public void paint(Graphics g) {
+        if (showHp) {
+            g.setColor(Color.RED);
+            g.fillRect(x - 5, y - 10, (int) ((width + 10) * hp), 5);
+            if (System.currentTimeMillis() - showHpTime >= 2000){
+                showHp = false;
+            }
+        }
         g.drawImage(img, x + (mirror ? width : 0), y, x + (mirror ? 0 : width), y + height,
                 anim[frame] * width, 0, anim[frame] * width + width, height, null);
+    }
+
+    @Override
+    public String toJson() {
+        return new Gson().toJson(this);
+    }
+
+    @Override
+    public void updateData(String jsonString) {
+        Gson json = new Gson();
+        Character character = json.fromJson(jsonString, CharacterImpl.class);
+        x = character.getX();
+        y = character.getY();
+        hp = character.getHp();
+        frame = character.getFrame();
+        updateHp = character.getUpdateHp();
+        showHpTime = character.getShowHpTime();
+        showHp = character.isShowHp();
+        mirror = character.isMirror();
+        movingV = character.getMovingV();
+        movingH = character.getMovingH();
     }
 }
