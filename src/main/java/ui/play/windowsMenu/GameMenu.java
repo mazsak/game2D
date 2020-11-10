@@ -38,6 +38,7 @@ public class GameMenu extends JPanel {
         add(saveButton);
         add(optionsButton);
         add(exitButton);
+        System.out.println("tak");
     }
 
     private void bind() {
