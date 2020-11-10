@@ -2,11 +2,12 @@ package core.bind;
 
 import constant.Const;
 import core.character.Character;
-import ui.play.GameMenu;
+import ui.play.windowsMenu.GameMenu;
 import ui.play.Terrain;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 
 public class BindKeyboardAdapter extends KeyAdapter {
 
@@ -29,15 +30,7 @@ public class BindKeyboardAdapter extends KeyAdapter {
             case KeyEvent.VK_DOWN:
                 character.movingVertical(0);
                 break;
-            default:
-                System.out.println(e.getKeyCode());
         }
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        super.keyPressed(e);
-        System.out.println("Pressed key: " + e.getKeyChar() + " - " + e.getKeyCode());
     }
 
     @Override
@@ -57,14 +50,16 @@ public class BindKeyboardAdapter extends KeyAdapter {
                 character.movingVertical(-Const.SPEEDHERO);
                 break;
             case KeyEvent.VK_ESCAPE:
-                screenTerrain.add(new GameMenu());
-                screenTerrain.repaint();
-                screenTerrain.revalidate();
-//                screenTerrain.getParent().remove(screenTerrain);
+                final GameMenu gameMenu = new GameMenu();
+                character.stopMove();
+                screenTerrain.add(gameMenu);
+                screenTerrain.setComponentZOrder(gameMenu, 0);
+                screenTerrain.setFocusable(false);
+                screenTerrain.removeKeyListener(this);
+//                screenTerrain.repaint();
                 break;
             default:
-                System.out.println(e.getKeyCode());
-                System.out.println(e.getKeyChar());
+                System.out.println("Code key: " + e.getKeyCode() + ", Char key: " + e.getKeyChar());
         }
     }
 }

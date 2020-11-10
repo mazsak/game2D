@@ -1,4 +1,4 @@
-package core;
+package core.bind;
 
 import com.studiohartman.jamepad.ControllerManager;
 import com.studiohartman.jamepad.ControllerState;

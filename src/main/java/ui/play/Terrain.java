@@ -41,7 +41,7 @@ public class Terrain extends JPanel {
         return tiles;
     }
 
-    private void bind() {
+    public void bind() {
         addKeyListener(new BindKeyboardAdapter(characters.get(0), this));
     }
 

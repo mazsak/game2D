@@ -1,6 +1,7 @@
 package core;
 
 
+import core.bind.BindGamepad;
 import ui.Game;
 
 public class AnimationController implements Runnable {
