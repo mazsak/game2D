@@ -23,7 +23,6 @@ public class OptionsWindow extends JPanel {
         bind();
 
         setFocusable(true);
-        setVisible(true);
     }
 
 

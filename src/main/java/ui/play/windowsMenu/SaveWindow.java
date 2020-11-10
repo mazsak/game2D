@@ -21,9 +21,7 @@ public class SaveWindow extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         bind();
-
         setFocusable(true);
-        setVisible(true);
     }
 
 

@@ -35,7 +35,6 @@ public class Game extends JFrame {
     private Game() {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setUndecorated(true);
-//        setLocationRelativeTo(null);
         characters = new ArrayList<>();
         charactersThroughNet = new ArrayList<>();
         characters.add(new CharacterImpl(0));
