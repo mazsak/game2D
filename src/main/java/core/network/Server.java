@@ -25,6 +25,7 @@ public class Server extends Thread {
         running = true;
 
         while (running) {
+            buf = new byte[1024];
             DatagramPacket packet
                     = new DatagramPacket(buf, buf.length);
             socket.receive(packet);

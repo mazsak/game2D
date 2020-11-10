@@ -8,6 +8,7 @@ import core.network.Server;
 import ui.play.Terrain;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,17 +18,24 @@ import java.util.List;
 
 public class Game extends JFrame {
 
+    private static Game instance;
     private final List<Character> characters;
     private final List<Character> charactersThroughNet;
     private final Terrain terrain;
     private final Client client;
     private final Server server;
 
-    public Game() {
+    public static Game getInstance(){
+        if (instance == null) {
+            instance = new Game();
+        }
+        return instance;
+    }
+
+    private Game() {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setUndecorated(true);
-        setLocationRelativeTo(null);
-
+//        setLocationRelativeTo(null);
         characters = new ArrayList<>();
         charactersThroughNet = new ArrayList<>();
         characters.add(new CharacterImpl(0));
@@ -40,6 +48,7 @@ public class Game extends JFrame {
         //        new Thread(new GamepadBind(character)).start();
 
         setVisible(true);
+
     }
 
     public Game(String address) {
