@@ -50,7 +50,6 @@ public class GameMenu extends JPanel {
         y += nextComponent;
         exitButton.setBounds(x, y, width, height);
         add(exitButton);
-        System.out.println("tak");
     }
 
     private void bind() {
