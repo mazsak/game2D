@@ -153,6 +153,7 @@ public class CharacterImpl implements Character {
     @Override
     public void collide(int dx, int dy, List<Tile> tiles) {
         for (Tile p : tiles) {
+            System.out.println(p.getClass());
             if (p.getBounds().intersects(x + dx, y + dy, width, height)) {
                 if (dx != 0)
                     p.collisionH(this);

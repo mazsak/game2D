@@ -3,6 +3,7 @@ package ui;
 import core.AnimationController;
 import core.character.Character;
 import core.character.CharacterImpl;
+import core.flora.Plant;
 import core.network.Client;
 import core.network.Server;
 import ui.play.Terrain;

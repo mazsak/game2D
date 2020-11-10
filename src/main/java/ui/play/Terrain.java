@@ -2,6 +2,7 @@ package ui.play;
 
 import core.bind.BindKeyboardAdapter;
 import core.character.Character;
+import core.flora.Plant;
 import core.terrain.TerrainBuilderImpl;
 import core.terrain.tiles.Tile;
 
@@ -10,12 +11,14 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Terrain extends JPanel {
 
     private List<Tile> tiles;
     private final List<Character> characters;
+    private final List<Plant> plants;
     private final List<Character> charactersThroughNet;
     private final TerrainBuilderImpl builder;
 
@@ -26,6 +29,7 @@ public class Terrain extends JPanel {
 
         this.characters = characters;
         this.charactersThroughNet = charactersThroughNet;
+        this.plants = new ArrayList<>();
         this.builder = new TerrainBuilderImpl();
         createTerrain(mapFile);
         tiles = builder.getTerrainList();
