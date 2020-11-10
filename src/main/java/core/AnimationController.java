@@ -4,6 +4,8 @@ package core;
 import core.bind.BindGamepad;
 import ui.Game;
 
+import java.io.IOException;
+
 public class AnimationController implements Runnable {
 
     private final Game game;
@@ -22,7 +24,11 @@ public class AnimationController implements Runnable {
 //                tile.tick();
             game.repaint();
             if (game.getClient() != null) {
-                game.getClient().updateData();
+                try {
+                    game.getClient().updateData();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 //            game.getTerrain().repaint();
             Thread.yield();

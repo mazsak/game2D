@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.net.SocketException;
 
 public class GameMenu extends JPanel {
 
@@ -18,7 +19,7 @@ public class GameMenu extends JPanel {
     private JButton exitButton = new JButton("Exit");
     int screenWidth, screenHeight;
 
-    public GameMenu() {
+    public GameMenu() throws SocketException {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         screenWidth = (int) screenSize.getWidth() / 6;
         screenHeight = (int) screenSize.getHeight() / 6;
@@ -75,7 +76,12 @@ public class GameMenu extends JPanel {
         });
 
         saveButton.addActionListener(e -> {
-            final SaveWindow saveWindow = new SaveWindow();
+            SaveWindow saveWindow = null;
+            try {
+                saveWindow = new SaveWindow();
+            } catch (SocketException ex) {
+                ex.printStackTrace();
+            }
             screenTerrain.add(saveWindow);
             screenTerrain.setComponentZOrder(saveWindow, 0);
             screenTerrain.remove(GameMenu.this);
@@ -83,7 +89,12 @@ public class GameMenu extends JPanel {
         });
 
         optionsButton.addActionListener(e -> {
-            final OptionsWindow optionsWindow = new OptionsWindow();
+            OptionsWindow optionsWindow = null;
+            try {
+                optionsWindow = new OptionsWindow();
+            } catch (SocketException ex) {
+                ex.printStackTrace();
+            }
             screenTerrain.add(optionsWindow);
             screenTerrain.setComponentZOrder(optionsWindow, 0);
             screenTerrain.remove(GameMenu.this);

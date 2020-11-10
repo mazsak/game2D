@@ -3,9 +3,11 @@ package core.network;
 import lombok.SneakyThrows;
 import ui.Game;
 
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.SocketException;
 
 public class Server extends Thread {
 
@@ -14,13 +16,11 @@ public class Server extends Thread {
     private boolean running;
     private byte[] buf = new byte[1024];
 
-    @SneakyThrows
-    public Server(Game game) {
+    public Server(Game game) throws SocketException {
         socket = new DatagramSocket(4445);
         this.game = game;
     }
 
-    @SneakyThrows
     public void run() {
         running = true;
 
@@ -28,7 +28,11 @@ public class Server extends Thread {
             buf = new byte[1024];
             DatagramPacket packet
                     = new DatagramPacket(buf, buf.length);
-            socket.receive(packet);
+            try {
+                socket.receive(packet);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             InetAddress address = packet.getAddress();
             int port = packet.getPort();
@@ -47,7 +51,11 @@ public class Server extends Thread {
                 buf = game.getData();
             }
             packet = new DatagramPacket(buf, buf.length, address, port);
-            socket.send(packet);
+            try {
+                socket.send(packet);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         socket.close();
     }

@@ -7,6 +7,7 @@ import ui.play.Terrain;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.net.SocketException;
 import java.util.Arrays;
 
 public class BindKeyboardAdapter extends KeyAdapter {
@@ -50,7 +51,12 @@ public class BindKeyboardAdapter extends KeyAdapter {
                 character.movingVertical(-Const.SPEEDHERO);
                 break;
             case KeyEvent.VK_ESCAPE:
-                final GameMenu gameMenu = new GameMenu();
+                GameMenu gameMenu = null;
+                try {
+                    gameMenu = new GameMenu();
+                } catch (SocketException ex) {
+                    ex.printStackTrace();
+                }
                 character.stopMove();
                 screenTerrain.add(gameMenu);
                 screenTerrain.setComponentZOrder(gameMenu, 0);

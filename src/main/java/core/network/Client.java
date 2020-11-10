@@ -3,9 +3,8 @@ package core.network;
 import lombok.SneakyThrows;
 import ui.Game;
 
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
+import java.io.IOException;
+import java.net.*;
 
 public class Client {
     private DatagramSocket socket;
@@ -14,15 +13,13 @@ public class Client {
 
     private byte[] buf = new byte[1024];
 
-    @SneakyThrows
-    public Client(String address, Game game) {
+    public Client(String address, Game game) throws SocketException, UnknownHostException {
         socket = new DatagramSocket();
         this.address = InetAddress.getByName(address);
         this.game = game;
     }
 
-    @SneakyThrows
-    public String getMap() {
+    public String getMap() throws IOException {
         buf = "get map".getBytes();
         DatagramPacket packet
                 = new DatagramPacket(buf, buf.length, address, 4445);
@@ -36,8 +33,7 @@ public class Client {
         return received;
     }
 
-    @SneakyThrows
-    public void updateData() {
+    public void updateData() throws IOException {
         buf = game.getData();
         DatagramPacket packet
                 = new DatagramPacket(buf, buf.length, address, 4445);

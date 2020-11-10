@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,14 +27,14 @@ public class Game extends JFrame {
     private final Client client;
     private final Server server;
 
-    public static Game getInstance(){
+    public static Game getInstance() throws SocketException {
         if (instance == null) {
             instance = new Game();
         }
         return instance;
     }
 
-    private Game() {
+    private Game() throws SocketException {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setUndecorated(true);
         characters = new ArrayList<>();
@@ -50,7 +52,7 @@ public class Game extends JFrame {
 
     }
 
-    public Game(String address) {
+    public Game(String address) throws SocketException, UnknownHostException {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setUndecorated(true);
         setLocationRelativeTo(null);
