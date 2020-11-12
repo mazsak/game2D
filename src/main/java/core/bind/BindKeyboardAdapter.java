@@ -2,13 +2,13 @@ package core.bind;
 
 import constant.Const;
 import core.character.Character;
-import ui.play.windowsMenu.GameMenu;
+import core.terrain.tiles.Tile;
 import ui.play.Terrain;
+import ui.play.windowsMenu.GameMenu;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.net.SocketException;
-import java.util.Arrays;
 
 public class BindKeyboardAdapter extends KeyAdapter {
 
@@ -38,6 +38,9 @@ public class BindKeyboardAdapter extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         super.keyReleased(e);
         switch (e.getKeyCode()) {
+            case KeyEvent.VK_E:
+                character.interaction(screenTerrain);
+                break;
             case KeyEvent.VK_LEFT:
                 character.movingHorizontally(-Const.SPEEDHERO);
                 break;

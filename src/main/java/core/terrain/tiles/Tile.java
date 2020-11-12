@@ -10,28 +10,24 @@ import java.util.List;
 
 public abstract class Tile extends JPanel {
 
-    private List<Image> images;
-    private int x, y;
-    private int width, height;
+    protected List<Image> images;
+    protected int x, y;
+    protected int width, height;
 
-    public Tile(int x, int y, String file) {
+    public Tile(int x, int y, int width, int height, String file) {
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.height = height;
         images = new ArrayList<>();
-        images.add(new ImageIcon(file).getImage().getScaledInstance(Const.SIZETILE, Const.SIZETILE, java.awt.Image.SCALE_SMOOTH));
-        width = Const.SIZETILE;
-        height = Const.SIZETILE;
-        setBounds(this.x, this.y, Const.SIZETILE, Const.SIZETILE);
+        images.add(new ImageIcon(file).getImage().getScaledInstance(this.width, this.height, java.awt.Image.SCALE_SMOOTH));
+        setBounds(this.x, this.y, this.width, this.height);
         setVisible(true);
     }
 
     public void addImage(String file){
         Image temp = new ImageIcon(file).getImage().getScaledInstance(Const.SIZETILE, Const.SIZETILE, java.awt.Image.SCALE_SMOOTH);
         images.add(temp);
-    }
-
-    public Rectangle getBounds() {
-        return new Rectangle(x, y, width , height);
     }
 
     @Override

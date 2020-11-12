@@ -2,14 +2,17 @@ package core.character;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.Expose;
+import core.flora.Plant;
 import core.terrain.tiles.Tile;
+import ui.Game;
+import ui.play.Terrain;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Modifier;
 import java.net.InetAddress;
+import java.net.SocketException;
 import java.util.List;
-import com.google.gson.annotations.Expose;
 
 
 public class CharacterImpl implements Character {
@@ -71,13 +74,13 @@ public class CharacterImpl implements Character {
     }
 
     @Override
-    public float getHp() {
-        return hp;
+    public void setY(int y) {
+        this.y = y;
     }
 
     @Override
-    public void setY(int y) {
-        this.y = y;
+    public float getHp() {
+        return hp;
     }
 
     public long getUpdateHp() {
@@ -153,7 +156,6 @@ public class CharacterImpl implements Character {
     @Override
     public void collide(int dx, int dy, List<Tile> tiles) {
         for (Tile p : tiles) {
-            System.out.println(p.getClass());
             if (p.getBounds().intersects(x + dx, y + dy, width, height)) {
                 if (dx != 0)
                     p.collisionH(this);
@@ -199,7 +201,7 @@ public class CharacterImpl implements Character {
         if (showHp) {
             g.setColor(Color.RED);
             g.fillRect(x - 5, y - 10, (int) ((width + 10) * hp), 5);
-            if (System.currentTimeMillis() - showHpTime >= 2000){
+            if (System.currentTimeMillis() - showHpTime >= 2000) {
                 showHp = false;
             }
         }
@@ -225,5 +227,20 @@ public class CharacterImpl implements Character {
         frame = character.getFrame();
         showHp = character.isShowHp();
         mirror = character.isMirror();
+    }
+
+    @Override
+    public void interaction(Terrain terrain) {
+        for (Tile p : terrain.getTiles()) {
+            if (p.getBounds().intersects(x, y, width, height)) {
+                if (p instanceof Plant) {
+                    terrain.remove(p);
+                    terrain.getTiles().remove(p);
+                    terrain.repaint();
+                    break;
+                }
+            }
+        }
+
     }
 }

@@ -1,6 +1,8 @@
 package core.terrain;
 
 import constant.Const;
+import core.flora.Flower;
+import core.flora.Plant;
 import core.terrain.tiles.Tile;
 import core.terrain.tiles.TileGrass;
 import core.terrain.tiles.TileWater;
@@ -11,18 +13,17 @@ import java.util.stream.Collectors;
 public class TerrainBuilderImpl implements TerrainBuilder {
 
     private Map<String, int[][]> masks;
-
+    private StringBuilder mapString;
     private Tile[][] terrain;
-    private List<String> grassTextures;
-    private List<String> waterTextures;
+    private List<Tile> flora;
     private int x, y;
     private int width, height;
 
     public TerrainBuilderImpl() {
         x = 0;
         y = 0;
-        this.grassTextures = Arrays.asList("grass1.png", "grass2.png");
-        this.waterTextures = Arrays.asList("water1.png", "water2.png", "water3.png", "water4.png");
+        mapString = new StringBuilder();
+        flora = new ArrayList<>();
         masks = new HashMap<>();
 
         masks.put("top", new int[][]{
@@ -76,10 +77,12 @@ public class TerrainBuilderImpl implements TerrainBuilder {
     }
 
     public List<Tile> getTerrainList() {
-        return Arrays.stream(terrain)
+        List<Tile> tiles = flora;
+        tiles.addAll(Arrays.stream(terrain)
                 .flatMap(Arrays::stream)
                 .filter(Objects::nonNull)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
+        return tiles;
     }
 
     @Override
@@ -87,12 +90,13 @@ public class TerrainBuilderImpl implements TerrainBuilder {
         this.width = width;
         this.height = height;
         this.terrain = new Tile[width][height];
+        mapString.append(width).append(" ").append(height).append("\n");
     }
 
     @Override
     public void buildGrass(int number) {
         for (int i = 0; i < number; i++) {
-            Tile grass = new TileGrass(x * Const.SIZETILE, y * Const.SIZETILE, "texture\\grass\\" + grassTextures.get(new Random().nextInt(grassTextures.size())));
+            Tile grass = new TileGrass(x * Const.SIZETILE, y * Const.SIZETILE);
             terrain[x++][y] = grass;
             if (x == width) {
                 x = 0;
@@ -101,14 +105,10 @@ public class TerrainBuilderImpl implements TerrainBuilder {
         }
     }
 
-    private String packGrass(int number) {
-        return "g." + number + ";";
-    }
-
     @Override
     public void buildWater(int number) {
         for (int i = 0; i < number; i++) {
-            Tile water = new TileWater(x * Const.SIZETILE, y * Const.SIZETILE, "texture\\water\\" + waterTextures.get(new Random().nextInt(waterTextures.size())));
+            Tile water = new TileWater(x * Const.SIZETILE, y * Const.SIZETILE);
             terrain[x++][y] = water;
             if (x == width) {
                 x = 0;
@@ -117,8 +117,12 @@ public class TerrainBuilderImpl implements TerrainBuilder {
         }
     }
 
-    private String packWater(int number) {
-        return "w." + number + ";";
+    @Override
+    public void buildFlower(int number) {
+        for (int i = 0; i < number; i++) {
+            Plant flower = new Flower(x * Const.SIZETILE, y * Const.SIZETILE);
+            flora.add(flower);
+        }
     }
 
     @Override
@@ -127,36 +131,14 @@ public class TerrainBuilderImpl implements TerrainBuilder {
     }
 
     @Override
-    public String pack() {
-        String classTitleName = terrain[0][0].getClass().getName();
-        int amountTile = 1;
-        StringBuilder map = new StringBuilder();
-        map.append(width).append(" ").append(height).append("\n");
-        for (int y = 1; y < height; y++) {
-            for (int x = 1; x < width; x++) {
-                if (!classTitleName.equals(terrain[x][y].getClass().getName())) {
-                    if (classTitleName.equals(TileGrass.class.getName())) {
-                        map.append(packGrass(amountTile));
-                    } else if (classTitleName.equals(TileWater.class.getName())) {
-                        map.append(packWater(amountTile));
-                    }
-                    classTitleName = terrain[x][y].getClass().getName();
-                    amountTile = 1;
-                } else {
-                    amountTile++;
-                }
-            }
-            if (classTitleName.equals(TileGrass.class.getName())) {
-                map.append(packGrass(amountTile));
-            } else if (classTitleName.equals(TileWater.class.getName())) {
-                map.append(packWater(amountTile));
-            }
-            amountTile = 1;
-            map.append("\n");
-        }
-        return map.toString();
+    public void addLineToMapString(String line) {
+        mapString.append(line).append("\n");
     }
 
+    @Override
+    public String pack() {
+        return mapString.toString();
+    }
 
     private void buildGrassEdges() {
         Class[] nameClass = {TileGrass.class, TileWater.class, Tile.class};

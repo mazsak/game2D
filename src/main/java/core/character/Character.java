@@ -1,6 +1,7 @@
 package core.character;
 
 import core.terrain.tiles.Tile;
+import ui.play.Terrain;
 
 import java.awt.*;
 import java.net.InetAddress;
@@ -40,4 +41,6 @@ public interface Character {
 
     String toJson();
     void updateData(String jsonString);
+
+    void interaction(Terrain terrain);
 }

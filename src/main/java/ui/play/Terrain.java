@@ -2,7 +2,6 @@ package ui.play;
 
 import core.bind.BindKeyboardAdapter;
 import core.character.Character;
-import core.flora.Plant;
 import core.terrain.TerrainBuilderImpl;
 import core.terrain.tiles.Tile;
 
@@ -11,16 +10,14 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Terrain extends JPanel {
 
-    private List<Tile> tiles;
     private final List<Character> characters;
-    private final List<Plant> plants;
     private final List<Character> charactersThroughNet;
     private final TerrainBuilderImpl builder;
+    private List<Tile> tiles;
 
     public Terrain(String mapFile, List<Character> characters, List<Character> charactersThroughNet) {
         setBackground(Color.BLACK);
@@ -29,7 +26,6 @@ public class Terrain extends JPanel {
 
         this.characters = characters;
         this.charactersThroughNet = charactersThroughNet;
-        this.plants = new ArrayList<>();
         this.builder = new TerrainBuilderImpl();
         createTerrain(mapFile);
         tiles = builder.getTerrainList();
@@ -54,22 +50,21 @@ public class Terrain extends JPanel {
         try {
             br = new BufferedReader(new FileReader(mapFile));
             String line;
-            String type;
-            int quantity;
+            String tileString, childrenString;
             if ((line = br.readLine()) != null) {
                 builder.setSize(Integer.parseInt(line.split(" ")[0]), Integer.parseInt(line.split(" ")[1]));
                 while ((line = br.readLine()) != null) {
+                    builder.addLineToMapString(line);
                     String[] lineParts = line.split(";");
                     for (String part : lineParts) {
-                        type = part.split("\\.")[0];
-                        quantity = Integer.parseInt(part.split("\\.")[1]);
-                        switch (type) {
-                            case "g":
-                                builder.buildGrass(quantity);
-                                break;
-                            case "w":
-                                builder.buildWater(quantity);
-                                break;
+                        tileString = part.split("-")[0];
+                        addTile(tileString);
+                        if (part.split("-").length == 2) {
+                            childrenString = part.split("-")[1];
+                            String[] children = childrenString.replace("{", "").replace("}", "").split(",");
+                            for (String child : children) {
+                                addTile(child);
+                            }
                         }
                     }
                 }
@@ -81,14 +76,28 @@ public class Terrain extends JPanel {
         }
     }
 
-    public String packTerrain(){
+    private void addTile(String tileString) {
+        String type = tileString.split("\\.")[0];
+        int quantity = Integer.parseInt(tileString.split("\\.")[1]);
+        switch (type) {
+            case "g":
+                builder.buildGrass(quantity);
+                break;
+            case "w":
+                builder.buildWater(quantity);
+                break;
+            case "f":
+                builder.buildFlower(quantity);
+        }
+    }
+
+    public String packTerrain() {
         return builder.pack();
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-//        tiles.forEach(tile -> tile.draw(g));
         characters.forEach(character -> character.paint(g));
         charactersThroughNet.forEach(character -> character.paint(g));
     }
